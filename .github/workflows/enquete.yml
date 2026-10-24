@@ -1,0 +1,32 @@
+name: Contar votos da enquete
+
+on:
+  schedule:
+    - cron: "13 15 * * 0"   # domingo, 12h13 em Brasília, antes da aprovação final
+  workflow_dispatch:
+    inputs:
+      modo_teste:
+        type: choice
+        options: ["sim", "não"]
+        default: "sim"
+
+permissions:
+  contents: write
+
+jobs:
+  contar:
+    runs-on: ubuntu-latest
+    env:
+      MODO_TESTE: ${{ inputs.modo_teste || vars.MODO_TESTE || 'sim' }}
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/contar_enquete.py
+      - run: |
+          git config user.name "odonto-em-5-bot"
+          git config user.email "odonto-em-5-bot@users.noreply.github.com"
+          git add edicoes/*/resultado_enquete.json 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "Resultado da enquete" && git push)

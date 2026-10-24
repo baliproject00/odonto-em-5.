@@ -1,0 +1,18 @@
+{
+  "data": "2026-10-26",
+  "titulo": "O ChatGPT consegue achar fratura de mandíbula?",
+  "email": {
+    "assunto": "O ChatGPT acha fratura de mandíbula? E o fim da escala 6x1",
+    "arquivo": "email.html"
+  },
+  "instagram": {
+    "slides": ["slides/01.jpg", "slides/02.jpg", "slides/03.jpg", "slides/04.jpg", "slides/05.jpg", "slides/06.jpg"],
+    "legenda": "🦷 O ChatGPT consegue achar fratura de mandíbula numa panorâmica? Um estudo de 23/10 testou, e a resposta está no slide 4.\n\nNesta semana:\n• Fim da escala 6x1: o que muda nas clínicas a partir de dezembro\n• Odontologia digital chega ao SUS em carretas\n• HMI: resina com fibras ou ionômero? 5 anos de acompanhamento\n• Oportunidades com prazo correndo\n\n📚 Referências\nYapıcıoğlu, BMC Oral Health, 2026. DOI 10.1186/s12903-026-10291-9\nKodaman Dokumacıgil et al., Clin Oral Investig, 2026. DOI 10.1007/s00784-026-07145-7\nEC 141/2026 · Jornal da APCD, 20/10 · FOB-USP, 21/10 · Diário do Grande ABC, 22/10\n\nNewsletter completa, com todos os links, toda segunda: link na bio.\n\n#odontologia #odonto #estudantedeodontologia #odontologiabaseadaemevidencias",
+    "comentario_enquete": "🧠 ENQUETE: pela definição, o que precisa estar afetado para o diagnóstico de HMI?\nA) Só incisivos permanentes\nB) Pelo menos um primeiro molar permanente\nC) Molares decíduos\nD) Todos os molares e incisivos\n\nResponda com a letra! O resultado sai na próxima edição.",
+    "enquete": {
+      "opcoes": ["A", "B", "C", "D"],
+      "correta": "B",
+      "explicacao": "Pela definição clássica, a HMI exige pelo menos um primeiro molar permanente afetado; os incisivos podem ou não estar envolvidos."
+    }
+  }
+}

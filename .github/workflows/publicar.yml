@@ -1,0 +1,54 @@
+name: Publicar edição (Instagram + newsletter)
+
+on:
+  schedule:
+    - cron: "7 10 * * 1"   # segunda, 7h07 no horário de Brasília
+  workflow_dispatch:
+    inputs:
+      data:
+        description: "Data da edição (AAAA-MM-DD). Em branco = hoje"
+        required: false
+      modo_teste:
+        description: "Modo teste (não publica nada)"
+        type: choice
+        options: ["sim", "não"]
+        default: "sim"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publicar
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    env:
+      DATA_EDICAO: ${{ inputs.data }}
+      # Em execuções agendadas, vale a variável MODO_TESTE do repositório (comece com "sim").
+      MODO_TESTE: ${{ inputs.modo_teste || vars.MODO_TESTE || 'sim' }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+      BREVO_LISTA_ID: ${{ secrets.BREVO_LISTA_ID }}
+      BREVO_REMETENTE_EMAIL: ${{ secrets.BREVO_REMETENTE_EMAIL }}
+      BREVO_REMETENTE_NOME: ${{ vars.BREVO_REMETENTE_NOME }}
+      BREVO_EMAIL_TESTE: ${{ vars.BREVO_EMAIL_TESTE }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Publicar carrossel e comentário-enquete
+        run: python scripts/publicar_instagram.py
+      - name: Enviar newsletter
+        if: always()
+        run: python scripts/enviar_newsletter.py
+      - name: Registrar o que foi publicado
+        if: always()
+        run: |
+          git config user.name "odonto-em-5-bot"
+          git config user.email "odonto-em-5-bot@users.noreply.github.com"
+          git add edicoes/*/publicado_instagram.json edicoes/*/enviado_email.json 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "Registro de publicação" && git push)
