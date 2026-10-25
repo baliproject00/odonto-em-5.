@@ -16,8 +16,8 @@ LIMITE_HASHTAGS = 30
 
 def validar(ig):
     slides = ig["slides"]
-    if not 2 <= len(slides) <= 20:
-        falhar(f"O carrossel precisa ter de 2 a 20 imagens; a edição tem {len(slides)}.")
+    if not 1 <= len(slides) <= 20:
+        falhar(f"O post precisa ter de 1 a 20 imagens; a edição tem {len(slides)}.")
     if any(not s.lower().endswith((".jpg", ".jpeg")) for s in slides):
         falhar("O Instagram só aceita JPEG nas imagens do carrossel.")
     legenda = ig["legenda"]
@@ -62,6 +62,11 @@ def main():
     usuario = env("IG_USER_ID")
     token = env("IG_ACCESS_TOKEN")
 
+    if len(urls) == 1:
+        r = http("POST", f"{BASE}/{usuario}/media", dados={"image_url": urls[0], "caption": ig["legenda"], "access_token": token})
+        carrossel = r["id"]
+        esperar_pronto(carrossel, token)
+        urls = []
     filhos = []
     for u in urls:
         r = http("POST", f"{BASE}/{usuario}/media", dados={"image_url": u, "is_carousel_item": "true", "access_token": token})
@@ -70,10 +75,11 @@ def main():
     for f in filhos:
         esperar_pronto(f, token)
 
-    r = http("POST", f"{BASE}/{usuario}/media", dados={
-        "media_type": "CAROUSEL", "children": ",".join(filhos), "caption": ig["legenda"], "access_token": token})
-    carrossel = r["id"]
-    esperar_pronto(carrossel, token)
+    if filhos:
+        r = http("POST", f"{BASE}/{usuario}/media", dados={
+            "media_type": "CAROUSEL", "children": ",".join(filhos), "caption": ig["legenda"], "access_token": token})
+        carrossel = r["id"]
+        esperar_pronto(carrossel, token)
 
     post = http("POST", f"{BASE}/{usuario}/media_publish", dados={"creation_id": carrossel, "access_token": token})["id"]
     log(f"Carrossel publicado. ID do post: {post}")
