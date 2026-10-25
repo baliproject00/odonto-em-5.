@@ -2,8 +2,8 @@
 
 Por padrão, publica os posts de posts/ cuja data "publicar_em" é hoje (horário de Brasília),
 que estão com "revisado": true e ainda não foram publicados.
-Com a variável POST_ID (ex.: 2026-10-27-chatgpt-fratura), publica só esse post, na hora:
-é o caminho para notícia urgente.
+Posts com "urgente": true (e revisados) são publicados assim que entram na branch main,
+sem esperar o dia agendado. Com a variável POST_ID, publica só esse post, na hora.
 Segredos necessários: IG_USER_ID e IG_ACCESS_TOKEN.
 """
 import json
@@ -29,7 +29,7 @@ def posts_a_publicar():
             if alvo:
                 log(f"{pasta.name} já foi publicado. Nada a fazer.")
             continue
-        if not alvo and post.get("publicar_em") != hoje:
+        if not alvo and post.get("publicar_em") != hoje and not post.get("urgente"):
             continue
         if not post.get("revisado"):
             log(f"{pasta.name} ainda não foi revisado; não será publicado.")
