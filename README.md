@@ -19,6 +19,8 @@ Além da edição de segunda, o Instagram recebe **3 posts avulsos por semana**:
 - **Quando:** terça, quarta e sexta, às 12h07. A rotina publica os posts cuja data `publicar_em` é o dia.
 - **Trava de revisão:** só sai post com `"revisado": true`. Quem marca isso é o revisor, depois de conferir o texto com a fonte.
 - **Notícia urgente:** o calendário é o mínimo, não o máximo. Um post com `"urgente": true` e `"revisado": true` é publicado assim que entra na branch `main`, sem esperar o dia agendado. Os agentes marcam como urgente: oportunidade com prazo em até 7 dias, decisão do CFO, da Anvisa ou da Justiça que afete estudantes ou dentistas, e notícia de grande repercussão na área. Limite de 1 post urgente por dia.
+- **Publicar na hora:** um post com `"publicar_agora": true` e `"revisado": true` sai assim que entra na branch `main`. É assim que o Claude publica quando você pede.
+- **Carrossel:** coloque `"carrossel": ["01.jpg", "02.jpg", ...]` no post.json (de 2 a 20 imagens JPEG, 1080x1350). Sem isso, o post usa `post.jpg`.
 - **Publicação manual:** **Actions → Publicar posts avulsos → Run workflow**, com o nome da pasta do post em `post_id`.
 - **Aprovação:** os posts da semana seguinte chegam na sexta, junto com a prévia da edição; notícia urgente chega quando aparece.
 

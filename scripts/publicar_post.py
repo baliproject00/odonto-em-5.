@@ -1,9 +1,9 @@
-"""Publica posts avulsos (uma imagem + legenda) no Instagram.
+"""Publica posts avulsos no Instagram: uma imagem (post.jpg) ou um carrossel ("carrossel" no post.json).
 
 Por padrão, publica os posts de posts/ cuja data "publicar_em" é hoje (horário de Brasília),
 que estão com "revisado": true e ainda não foram publicados.
-Posts com "urgente": true (e revisados) são publicados assim que entram na branch main,
-sem esperar o dia agendado. Com a variável POST_ID, publica só esse post, na hora.
+Posts com "publicar_agora": true ou "urgente": true (e revisados) são publicados assim que
+entram na branch main, sem esperar o dia agendado. Com a variável POST_ID, publica só esse post, na hora.
 Segredos necessários: IG_USER_ID e IG_ACCESS_TOKEN.
 """
 import json
@@ -29,7 +29,8 @@ def posts_a_publicar():
             if alvo:
                 log(f"{pasta.name} já foi publicado. Nada a fazer.")
             continue
-        if not alvo and post.get("publicar_em") != hoje and not post.get("urgente"):
+        agora = post.get("urgente") or post.get("publicar_agora")
+        if not alvo and post.get("publicar_em") != hoje and not agora:
             continue
         if not post.get("revisado"):
             log(f"{pasta.name} ainda não foi revisado; não será publicado.")
@@ -37,9 +38,19 @@ def posts_a_publicar():
         yield pasta, post
 
 
+def imagens(pasta, post):
+    return post.get("carrossel") or ["post.jpg"]
+
+
 def validar(pasta, post):
-    if not (pasta / "post.jpg").exists():
-        falhar(f"{pasta.name}: falta a imagem post.jpg.")
+    lista = imagens(pasta, post)
+    if len(lista) > 20:
+        falhar(f"{pasta.name}: o carrossel pode ter no máximo 20 imagens.")
+    for nome in lista:
+        if not (pasta / nome).exists():
+            falhar(f"{pasta.name}: falta a imagem {nome}.")
+        if not nome.lower().endswith((".jpg", ".jpeg")):
+            falhar(f"{pasta.name}: {nome} precisa ser JPEG.")
     if len(post["legenda"]) > LIMITE_LEGENDA:
         falhar(f"{pasta.name}: legenda com {len(post['legenda'])} caracteres; o limite é {LIMITE_LEGENDA}.")
     if post["legenda"].count("#") > LIMITE_HASHTAGS:
@@ -53,13 +64,21 @@ def main():
         return
     for pasta, post in encontrados:
         validar(pasta, post)
-        imagem = url_publica(f"posts/{pasta.name}/post.jpg")
+        urls = [url_publica(f"posts/{pasta.name}/{n}") for n in imagens(pasta, post)]
         if modo_teste():
-            log(f"MODO TESTE: publicaria {pasta.name}\n  imagem: {imagem}\n  legenda ({len(post['legenda'])} caracteres):\n{post['legenda']}")
+            log(f"MODO TESTE: publicaria {pasta.name}\n  imagens: {urls}\n  legenda ({len(post['legenda'])} caracteres):\n{post['legenda']}")
             continue
         usuario, token = env("IG_USER_ID"), env("IG_ACCESS_TOKEN")
-        midia = http("POST", f"{BASE}/{usuario}/media",
-                     dados={"image_url": imagem, "caption": post["legenda"], "access_token": token})["id"]
+        if len(urls) == 1:
+            midia = http("POST", f"{BASE}/{usuario}/media",
+                         dados={"image_url": urls[0], "caption": post["legenda"], "access_token": token})["id"]
+        else:
+            filhos = [http("POST", f"{BASE}/{usuario}/media",
+                           dados={"image_url": u, "is_carousel_item": "true", "access_token": token})["id"] for u in urls]
+            for f in filhos:
+                esperar_pronto(f, token)
+            midia = http("POST", f"{BASE}/{usuario}/media", dados={
+                "media_type": "CAROUSEL", "children": ",".join(filhos), "caption": post["legenda"], "access_token": token})["id"]
         esperar_pronto(midia, token)
         publicado = http("POST", f"{BASE}/{usuario}/media_publish",
                          dados={"creation_id": midia, "access_token": token})["id"]
