@@ -1,11 +1,12 @@
 {
   "tipo": "estudo",
   "publicar_em": "2026-10-27",
-  "revisado": true,
+  "revisado": false,
   "rotulo": "Estudo novo",
   "manchete": "ChatGPT e Gemini erram o local de fraturas de mandíbula em panorâmicas",
   "destaque": "erram o local",
   "imagem": "arte.jpg",
   "tema": "escuro",
-  "legenda": "🦷 IA NA RADIOLOGIA. Dá para pedir ao ChatGPT que encontre uma fratura de mandíbula numa radiografia panorâmica? Um estudo publicado nesta semana testou, e o resultado pede cautela.\n\nO pesquisador mostrou 104 panorâmicas, 64 delas com fratura, ao ChatGPT e ao Gemini. O Gemini encontrou 92% das fraturas, mas também apontou fratura em cerca de um terço das imagens normais. O ChatGPT quase não deu alarme falso, mas deixou passar quase dois terços das fraturas.\n\nO ponto mais importante: os dois acertaram o local exato da fratura em menos de 27% dos casos. O especialista acertou em 97%.\n\nO que ainda não sabemos: é um estudo retrospectivo, com um único autor, poucos casos e sem informar as versões dos modelos, que mudam rápido. Mas a mensagem é clara: chatbot genérico não substitui o exame do profissional.\n\n📚 Yapıcıoğlu, BMC Oral Health, 2026. DOI 10.1186/s12903-026-10291-9\n(Gráfico: odonto em 5 | Dados do estudo)\n\nSiga @odontoemcinco e receba a newsletter toda segunda: link na bio.\n\n#odontologia #estudantedeodontologia #radiologiaodontologica #inteligenciaartificial"
+  "legenda": "🦷 IA NA RADIOLOGIA. Dá para pedir ao ChatGPT que encontre uma fratura de mandíbula numa radiografia panorâmica? Um estudo publicado nesta semana testou, e o resultado pede cautela.\n\nO pesquisador mostrou 104 panorâmicas, 64 delas com fratura, ao ChatGPT e ao Gemini. O Gemini encontrou 92% das fraturas, mas também apontou fratura em cerca de um terço das imagens normais. O ChatGPT quase não deu alarme falso, mas deixou passar quase dois terços das fraturas.\n\nO ponto mais importante: os dois acertaram o local exato da fratura em menos de 27% dos casos. O especialista acertou em 97%.\n\nO que ainda não sabemos: é um estudo retrospectivo, com um único autor, poucos casos e sem informar as versões dos modelos, que mudam rápido. Mas a mensagem é clara: chatbot genérico não substitui o exame do profissional.\n\n📚 Yapıcıoğlu, BMC Oral Health, 2026. DOI 10.1186/s12903-026-10291-9\n(Gráfico: odonto em 5 | Dados do estudo)\n\nSiga @odontoemcinco e receba a newsletter toda segunda: link na bio.\n\n#odontologia #estudantedeodontologia #radiologiaodontologica #inteligenciaartificial",
+  "cancelado": "Assunto já coberto na newsletter de 26/10; não repetir no Instagram."
 }
