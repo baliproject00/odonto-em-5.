@@ -51,5 +51,5 @@ jobs:
         run: |
           git config user.name "odonto-em-5-bot"
           git config user.email "odonto-em-5-bot@users.noreply.github.com"
-          git add edicoes/*/publicado_instagram.json edicoes/*/enviado_email.json 2>/dev/null || true
+          git add edicoes posts
           git diff --cached --quiet || (git commit -m "Registro de publicação" && git push)
