@@ -41,6 +41,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Publicar carrossel e comentário-enquete
+        if: vars.PUBLICAR_INSTAGRAM != 'não'
         run: python scripts/publicar_instagram.py
       - name: Enviar newsletter
         if: always()

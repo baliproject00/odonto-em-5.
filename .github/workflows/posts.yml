@@ -27,6 +27,7 @@ concurrency:
 jobs:
   publicar:
     runs-on: ubuntu-latest
+    if: vars.PUBLICAR_INSTAGRAM != 'não'
     env:
       POST_ID: ${{ inputs.post_id }}
       MODO_TESTE: ${{ inputs.modo_teste || vars.MODO_TESTE || 'sim' }}
