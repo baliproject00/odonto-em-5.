@@ -1,0 +1,44 @@
+name: Publicar posts avulsos
+
+on:
+  schedule:
+    - cron: "7 15 * * 2,3,5"   # terça, quarta e sexta, 12h07 em Brasília
+  workflow_dispatch:
+    inputs:
+      post_id:
+        description: "Nome da pasta do post para publicar AGORA (notícia urgente). Em branco = posts agendados para hoje"
+        required: false
+      modo_teste:
+        description: "Modo teste (não publica nada)"
+        type: choice
+        options: ["sim", "não"]
+        default: "sim"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publicar
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    env:
+      POST_ID: ${{ inputs.post_id }}
+      MODO_TESTE: ${{ inputs.modo_teste || vars.MODO_TESTE || 'sim' }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/publicar_post.py
+      - name: Registrar o que foi publicado
+        if: always()
+        run: |
+          git config user.name "odonto-em-5-bot"
+          git config user.email "odonto-em-5-bot@users.noreply.github.com"
+          git add posts/*/publicado.json 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "Registro de post avulso" && git push)

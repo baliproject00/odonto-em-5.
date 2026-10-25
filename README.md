@@ -12,6 +12,26 @@ Newsletter semanal para graduandos de Odontologia, com carrossel no Instagram. E
 
 Nada é publicado enquanto a variável `MODO_TESTE` estiver como `sim`.
 
+## Posts avulsos (estilo the news)
+
+Além da edição de segunda, o Instagram recebe **3 posts avulsos por semana**: uma imagem com a manchete e a matéria completa na legenda, sempre com a fonte.
+
+- **Quando:** terça, quarta e sexta, às 12h07. A rotina publica os posts cuja data `publicar_em` é o dia.
+- **Trava de revisão:** só sai post com `"revisado": true`. Quem marca isso é o revisor, depois de conferir o texto com a fonte.
+- **Notícia urgente:** **Actions → Publicar posts avulsos → Run workflow**, com o nome da pasta do post em `post_id`. Publica na hora.
+- **Aprovação:** os posts da semana seguinte chegam na sexta, junto com a prévia da edição; notícia urgente chega quando aparece.
+
+Estrutura de um post:
+
+```
+posts/AAAA-MM-DD-assunto/
+  post.json   tipo, publicar_em, revisado, rotulo, manchete, destaque, legenda, comentario (opcional)
+  arte.jpg    gráfico ou ilustração própria
+  post.jpg    imagem final, gerada com: python ferramentas/gerar_post.py posts/AAAA-MM-DD-assunto
+```
+
+Tipos de post que se alternam: notícia, estudo explicado, oportunidade com prazo e "Você sabia?".
+
 ## Estrutura de uma edição
 
 ```
