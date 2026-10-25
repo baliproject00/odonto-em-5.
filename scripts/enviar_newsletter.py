@@ -6,6 +6,7 @@ Opcional: BREVO_REMETENTE_NOME (padrão "odonto em 5") e BREVO_EMAIL_TESTE
 """
 import json
 import os
+from datetime import datetime, timezone
 
 from comum import env, http, ler_edicao, log, modo_teste, pasta_da_edicao, url_publica
 
@@ -44,7 +45,8 @@ def main():
         log(f"Envio de teste feito para {teste}. A campanha {cid} ficou como rascunho na Brevo.")
         return
     http("POST", f"{API}/emailCampaigns/{cid}/sendNow", cabecalhos=cab)
-    (pasta / "enviado_email.json").write_text(json.dumps({"campanha_id": cid}, indent=2), encoding="utf-8")
+    enviado_em = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    (pasta / "enviado_email.json").write_text(json.dumps({"campanha_id": cid, "enviado_em": enviado_em}, indent=2), encoding="utf-8")
     log(f"Newsletter enviada. Campanha Brevo {cid}.")
 
 

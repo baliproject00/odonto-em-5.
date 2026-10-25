@@ -82,5 +82,6 @@ Em **Settings → Secrets and variables → Actions**:
 - O Instagram não oferece enquete nativa pela API. A enquete é um comentário com alternativas A a D, e os votos são contados pelas respostas.
 - O comentário não pode ser fixado pela API; fixe-o pelo aplicativo, se quiser.
 - Links na legenda do Instagram não são clicáveis; por isso as referências vão como citação com DOI.
+- **Novos inscritos no meio da semana:** a rotina "Enviar edição para novos inscritos" roda de hora em hora e manda a edição da semana para quem se inscreveu depois do envio de segunda (com um aviso no topo). Precisa que a chave da Brevo tenha permissão completa de contatos. Para desligar, crie a variável `ENVIAR_ATRASADOS = não`.
 - O token do Instagram vale 60 dias. A rotina `Renovar token` renova nos dias 1 e 15; sem `GH_PAT`, ela avisa, mas não consegue salvar o token novo.
 - No plano gratuito da Brevo, o limite é de 300 e-mails por dia.

@@ -1,0 +1,37 @@
+name: Enviar edição para novos inscritos
+
+on:
+  schedule:
+    - cron: "41 * * * *"   # de hora em hora
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publicar
+  cancel-in-progress: false
+
+jobs:
+  enviar:
+    runs-on: ubuntu-latest
+    if: vars.ENVIAR_ATRASADOS != 'não'
+    env:
+      MODO_TESTE: ${{ vars.MODO_TESTE || 'sim' }}
+      BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+      BREVO_LISTA_ID: ${{ secrets.BREVO_LISTA_ID || vars.BREVO_LISTA_ID }}
+      BREVO_REMETENTE_EMAIL: ${{ secrets.BREVO_REMETENTE_EMAIL || vars.BREVO_REMETENTE_EMAIL }}
+      BREVO_REMETENTE_NOME: ${{ vars.BREVO_REMETENTE_NOME }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: python scripts/enviar_atrasados.py
+      - name: Registrar quem recebeu
+        if: always()
+        run: |
+          git config user.name "odonto-em-5-bot"
+          git config user.email "odonto-em-5-bot@users.noreply.github.com"
+          git add edicoes
+          git diff --cached --quiet || (git commit -m "Registro: edição enviada a novos inscritos" && git pull --rebase -q && git push)

@@ -4,5 +4,6 @@
   "email": {
     "assunto": "Bem-vindo ao odonto em 5 (e feliz Dia do Cirurgião-Dentista)",
     "arquivo": "email.html"
-  }
+  },
+  "especial": true
 }
