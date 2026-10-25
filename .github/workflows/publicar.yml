@@ -11,6 +11,11 @@ on:
       email_teste:
         description: "Enviar só para este(s) e-mail(s), como teste (separe por vírgula). Em branco = lista inteira"
         required: false
+      teste_lista:
+        description: "Teste para a lista inteira: envia com [Teste] no assunto, não publica no Instagram e não marca a edição como enviada"
+        type: choice
+        options: ["não", "sim"]
+        default: "não"
       modo_teste:
         description: "Modo teste (não publica nada)"
         type: choice
@@ -38,13 +43,14 @@ jobs:
       BREVO_REMETENTE_EMAIL: ${{ secrets.BREVO_REMETENTE_EMAIL || vars.BREVO_REMETENTE_EMAIL }}
       BREVO_REMETENTE_NOME: ${{ vars.BREVO_REMETENTE_NOME }}
       BREVO_EMAIL_TESTE: ${{ inputs.email_teste || vars.BREVO_EMAIL_TESTE }}
+      TESTE_LISTA: ${{ inputs.teste_lista || 'não' }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Publicar carrossel e comentário-enquete
-        if: vars.PUBLICAR_INSTAGRAM == 'sim' && !inputs.email_teste
+        if: vars.PUBLICAR_INSTAGRAM == 'sim' && !inputs.email_teste && inputs.teste_lista != 'sim'
         run: python scripts/publicar_instagram.py
       - name: Enviar newsletter
         if: always()
