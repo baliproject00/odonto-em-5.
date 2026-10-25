@@ -65,7 +65,7 @@ Em **Settings → Secrets and variables → Actions**:
 | Nome | Valor |
 | --- | --- |
 | `MODO_TESTE` | `sim` até o primeiro teste dar certo; depois `não` |
-| `PUBLICAR_INSTAGRAM` | `não` para enviar só a newsletter (fase de lançamento); `sim` quando o Instagram entrar |
+| `PUBLICAR_INSTAGRAM` | Só publica no Instagram se for `sim`. Sem a variável, ou com `não`, o Instagram fica desligado |
 | `BREVO_REMETENTE_NOME` | `odonto em 5` |
 | `BREVO_EMAIL_TESTE` | Opcional: seu e-mail. Com ele preenchido, a newsletter vai só para você |
 
