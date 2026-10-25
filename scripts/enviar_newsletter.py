@@ -1,7 +1,7 @@
 """Envia a newsletter da edição pela Brevo (campanha de e-mail para a lista de inscritos).
 
 Segredos necessários: BREVO_API_KEY, BREVO_LISTA_ID, BREVO_REMETENTE_EMAIL.
-Opcional: BREVO_REMETENTE_NOME (padrão "odonto em 5.") e BREVO_EMAIL_TESTE
+Opcional: BREVO_REMETENTE_NOME (padrão "odonto em 5") e BREVO_EMAIL_TESTE
 (se definido, a campanha é enviada só para esse endereço, como teste).
 """
 import json
@@ -31,9 +31,9 @@ def main():
 
     cab = {"api-key": env("BREVO_API_KEY"), "accept": "application/json"}
     campanha = http("POST", f"{API}/emailCampaigns", cabecalhos=cab, json_body={
-        "name": f"odonto em 5. · {data}",
+        "name": f"odonto em 5 · {data}",
         "subject": edicao["email"]["assunto"],
-        "sender": {"name": os.environ.get("BREVO_REMETENTE_NOME") or "odonto em 5.", "email": env("BREVO_REMETENTE_EMAIL")},
+        "sender": {"name": os.environ.get("BREVO_REMETENTE_NOME") or "odonto em 5", "email": env("BREVO_REMETENTE_EMAIL")},
         "htmlContent": html,
         "recipients": {"listIds": [int(env("BREVO_LISTA_ID"))]},
     })

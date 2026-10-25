@@ -64,7 +64,7 @@ Em **Settings → Secrets and variables → Actions**:
 | Nome | Valor |
 | --- | --- |
 | `MODO_TESTE` | `sim` até o primeiro teste dar certo; depois `não` |
-| `BREVO_REMETENTE_NOME` | `odonto em 5.` |
+| `BREVO_REMETENTE_NOME` | `odonto em 5` |
 | `BREVO_EMAIL_TESTE` | Opcional: seu e-mail. Com ele preenchido, a newsletter vai só para você |
 
 ## Testar

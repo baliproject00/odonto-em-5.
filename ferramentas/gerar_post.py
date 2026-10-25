@@ -34,7 +34,7 @@ body{{margin:0}}
 .man{{font-size:{tam}px;font-weight:800;line-height:1.08;color:#F6F2E9;letter-spacing:-1.5px}}
 .man em{{font-style:normal;color:#F5785A}}
 </style></head><body><div class="p">
-<div class="topo"><img src="file://{logo}" style="height:64px"><span>odonto em 5<b>.</b></span></div>
+<div class="topo"><img src="file://{logo}" style="height:64px"><span>odonto em <b>5</b></span></div>
 <div class="arte"><img src="file://{arte}"></div>
 <div class="base"><div class="rot">{rotulo}</div><div class="man">{manchete}</div></div>
 </div></body></html>"""
