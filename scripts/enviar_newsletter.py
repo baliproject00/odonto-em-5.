@@ -40,7 +40,7 @@ def main():
     cid = campanha["id"]
     teste = os.environ.get("BREVO_EMAIL_TESTE")
     if teste:
-        http("POST", f"{API}/emailCampaigns/{cid}/sendTest", cabecalhos=cab, json_body={"emailTo": [teste]})
+        http("POST", f"{API}/emailCampaigns/{cid}/sendTest", cabecalhos=cab, json_body={"emailTo": [e.strip() for e in teste.split(",") if e.strip()]})
         log(f"Envio de teste feito para {teste}. A campanha {cid} ficou como rascunho na Brevo.")
         return
     http("POST", f"{API}/emailCampaigns/{cid}/sendNow", cabecalhos=cab)
