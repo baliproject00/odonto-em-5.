@@ -2,6 +2,7 @@ name: Publicar edição (Instagram + newsletter)
 
 on:
   schedule:
+    - cron: "57 19 25 10 *"   # TESTE: só hoje, 25/10, por volta das 17h (remover depois)
     - cron: "27 9 * * 1"   # segunda, 6h27 no horário de Brasília (o GitHub costuma atrasar alguns minutos, então chega por volta de 6h30)
   workflow_dispatch:
     inputs:
