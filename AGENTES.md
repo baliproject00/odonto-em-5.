@@ -7,7 +7,7 @@ Este arquivo é o guia das sessões automáticas do Claude que pesquisam e monta
 - **odonto em 5**: newsletter semanal e gratuita para graduandos de Odontologia no Brasil. "Tudo o que você precisa saber do mundo da Odontologia em 5 minutos."
 - Tom: **jornalismo acadêmico moderno**. Rigor, fonte sempre, sem sensacionalismo, sem promessa milagrosa, linguagem clara de quem conversa com um colega de faculdade.
 - Feita com a ajuda de IA e **aprovada pelo editor-chefe** (o dono do projeto) antes de sair. Nada é publicado sem a aprovação dele.
-- Sai **toda segunda, entre 6h03 e 6h30** (Brasília), por e-mail (Brevo) e com carrossel no Instagram @odontoemcinco.
+- A newsletter sai **toda segunda, entre 6h03 e 6h30** (Brasília), por e-mail (Brevo). O **carrossel-resumo** sai no Instagram @odontoemcinco na mesma segunda, **por volta das 12h**.
 
 ## Calendário da semana
 
@@ -17,7 +17,8 @@ Este arquivo é o guia das sessões automáticas do Claude que pesquisam e monta
 | Sáb, 6h13 | Rotina do GitHub | Conta os votos da enquete da edição anterior (`resultado_enquete.json`) |
 | Sáb, de manhã | Editor + redator + revisor + designer | Monta a edição da segunda seguinte com `"aprovado": false`, manda a prévia e espera o editor-chefe |
 | Sáb e dom | Editor-chefe | Pede ajustes ou diz "aprovado"; só então a sessão muda para `"aprovado": true` |
-| Seg, 6h03 | Rotina do GitHub | Publica carrossel + enquete e envia a newsletter (só se `"aprovado": true`) |
+| Seg, 6h03 | Rotina do GitHub | Envia a newsletter (só se `"aprovado": true`) |
+| Seg, ~12h | Rotina do GitHub | Publica o carrossel-resumo + enquete no Instagram (só se `"aprovado": true`) |
 
 ## 1. Pesquisador (coleta diária)
 
@@ -62,7 +63,11 @@ Busque o que saiu **desde a última coleta** (normalmente nas últimas 24 a 72 h
 - Abertura "Bom dia, Odonto!" com 2 ou 3 frases que conectam os assuntos da semana.
 - Se existir `resultado_enquete.json` da edição anterior, abra o Desafio com o resultado: porcentagem de cada letra, a resposta certa e a explicação.
 - Tempo de leitura: até 5 minutos (cerca de 900 a 1.100 palavras no e-mail).
-- Legenda do Instagram: até 2.200 caracteres e no máximo 5 hashtags. Chame para o desafio no último slide e para a inscrição no link da bio. Referências no fim.
+- **O carrossel é o RESUMO da newsletter** e existe para trazer inscritos. Estratégia:
+  - A capa leva o selo **"RESUMO DA NEWSLETTER"** e a data.
+  - Cada slide entrega o essencial, mas deixa um gancho para a edição completa: o detalhe, o número que falta ou a explicação ficam "na newsletter" (ex.: "O que isso muda no seu estágio: na edição completa").
+  - O último slide é o desafio (votação nos comentários) com a chamada "A edição completa chega toda segunda às 6h no e-mail: link na bio".
+- Legenda do Instagram: comece com "📩 Este é o resumo da edição de hoje do odonto em 5. A versão completa, com todos os detalhes e links, chegou às 6h no e-mail de quem assina." Depois, a lista do que tem na edição, a chamada para o desafio, as referências e "Assine grátis pelo link da bio". Até 2.200 caracteres e no máximo 5 hashtags.
 - Comentário-enquete: "🗳️ Vote aqui: responda este comentário com A, B, C ou D. Vale um voto por pessoa, e o resultado sai na edição de segunda que vem!"
 
 ### Revisor (independente)
@@ -72,7 +77,7 @@ Busque o que saiu **desde a última coleta** (normalmente nas últimas 24 a 72 h
 ### Designer
 - Cores: verde-petróleo `#153D46`, creme `#F6F2E9`, coral `#F5785A`, coral escuro para texto `#B0452A`, texto `#1F2933`. Fonte Inter (Inter Display nos títulos).
 - E-mail: cabeçalho em imagem (`marca/cabecalho.png`), blocos em fundo claro (branco ou creme) e nada de bloco escuro com texto, para não quebrar no modo escuro do Gmail. Rodapé com `marca/selo.png`. Imagens em `edicoes/AAAA-MM-DD/imagens/`, referenciadas como `{{BASE}}/imagens/...`. Inclua `<meta name="color-scheme" content="light only">`.
-- Carrossel: 6 imagens de 1080x1350 em JPEG, geradas com Playwright a partir de HTML: capa, Giro (só texto, número grande + manchete + 1 frase), Ciência (com gráfico), Odonto do futuro, Radar e Desafio (pergunta + alternativas A a D). Uma ideia por imagem, texto grande e legível no celular. Nada de miniaturas pequenas.
+- Carrossel: 6 imagens de 1080x1350 em JPEG, geradas com Playwright a partir de HTML: capa (com o selo "RESUMO DA NEWSLETTER"), Giro (só texto, número grande + manchete + 1 frase), Ciência (com gráfico), Odonto do futuro, Radar e Desafio (pergunta + alternativas A a D). Uma ideia por imagem, texto grande e legível no celular. Nada de miniaturas pequenas.
 - Gráficos e ilustrações são próprios. Nunca use foto ou imagem de terceiros.
 
 ### Entrega

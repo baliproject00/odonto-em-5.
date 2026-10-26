@@ -2,6 +2,7 @@ name: Publicar edição (Instagram + newsletter)
 
 on:
   schedule:
+    - cron: "47 14 * * 1"   # segunda, 11h47 em Brasília: carrossel no Instagram (chega por volta de 12h)
     - cron: "3 9 * * 1"   # segunda, 6h03 em Brasília: o GitHub pode atrasar, e a margem garante a entrega até ~6h30
   workflow_dispatch:
     inputs:
@@ -52,10 +53,10 @@ jobs:
         with:
           python-version: "3.12"
       - name: Publicar carrossel e comentário-enquete
-        if: vars.PUBLICAR_INSTAGRAM == 'sim' && !inputs.email_teste && inputs.teste_lista != 'sim'
+        if: vars.PUBLICAR_INSTAGRAM == 'sim' && !inputs.email_teste && inputs.teste_lista != 'sim' && github.event.schedule != '3 9 * * 1'
         run: python scripts/publicar_instagram.py
       - name: Enviar newsletter
-        if: always()
+        if: always() && github.event.schedule != '47 14 * * 1'
         run: python scripts/enviar_newsletter.py
       - name: Registrar o que foi publicado
         if: always()
