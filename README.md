@@ -14,9 +14,14 @@ Nada é publicado enquanto a variável `MODO_TESTE` estiver como `sim`, nem enqu
 
 ## Posts avulsos (estilo the news)
 
-Além da edição de segunda, o Instagram recebe **3 posts avulsos por semana**: uma imagem com a manchete e a matéria completa na legenda, sempre com a fonte.
+Além da edição de segunda, o Instagram recebe **4 posts avulsos por semana**: uma imagem com a manchete e a matéria completa na legenda, sempre com a fonte.
 
-- **Quando:** terça, quarta e sexta, às 12h07. A rotina publica os posts cuja data `publicar_em` é o dia.
+- **Quando:** de terça a sexta, às 12h07. A rotina publica os posts cuja data `publicar_em` é o dia.
+- **Tema de cada dia** (o rótulo da imagem):
+  - **Terça · IA na Odonto:** inteligência artificial e tecnologia na Odontologia.
+  - **Quarta · Curiosidade:** um fato curioso, com fonte.
+  - **Quinta · Aprenda em 5:** ensina algo prático ou um conceito que o graduando precisa saber.
+  - **Sexta · Notícia da profissão:** CFO, Anvisa, leis, mercado de trabalho e carreira.
 - **Trava de revisão:** só sai post com `"revisado": true`. Quem marca isso é o revisor, depois de conferir o texto com a fonte.
 - **Notícia urgente:** o calendário é o mínimo, não o máximo. Um post com `"urgente": true` e `"revisado": true` é publicado assim que entra na branch `main`, sem esperar o dia agendado. Os agentes marcam como urgente: oportunidade com prazo em até 7 dias, decisão do CFO, da Anvisa ou da Justiça que afete estudantes ou dentistas, e notícia de grande repercussão na área. Limite de 1 post urgente por dia.
 - **Publicar na hora:** um post com `"publicar_agora": true` e `"revisado": true` sai assim que entra na branch `main`. É assim que o Claude publica quando você pede.
@@ -33,9 +38,7 @@ posts/AAAA-MM-DD-assunto/
   post.jpg    imagem final, gerada com: python ferramentas/gerar_post.py posts/AAAA-MM-DD-assunto
 ```
 
-Tipos de post que se alternam: notícia, estudo explicado, oportunidade com prazo e "Você sabia?".
-
-**Regra:** post avulso traz assunto novo da semana. Nunca repete o que já saiu na newsletter de segunda e nunca usa as pautas mais fortes, que ficam guardadas para a edição da segunda seguinte: a newsletter tem que ser sempre o conteúdo mais chamativo. Os posts usam pautas boas de segundo nível, oportunidades com prazo que vence antes da próxima segunda e "Você sabia?".
+**Regra:** post avulso traz assunto novo da semana. Nunca repete o que já saiu na newsletter de segunda e nunca usa as pautas mais fortes, que ficam guardadas para a edição da segunda seguinte: a newsletter tem que ser sempre o conteúdo mais chamativo. Os posts usam pautas boas de segundo nível dentro do tema do dia. Oportunidade com prazo que vence antes da próxima segunda entra como post urgente.
 
 ## Estrutura de uma edição
 

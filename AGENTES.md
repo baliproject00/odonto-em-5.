@@ -14,6 +14,7 @@ Este arquivo é o guia das sessões automáticas do Claude que pesquisam e monta
 | Quando | Quem | O quê |
 | --- | --- | --- |
 | Seg a sex, de manhã | Pesquisador | Coleta diária de pautas, salva no documento de pautas da semana no projeto ODONTOEMCINCO do Claude |
+| Ter a sex, 12h07 | Rotina do GitHub | Publica o post avulso do dia (só se `"revisado": true`) |
 | Sáb, 6h13 | Rotina do GitHub | Conta os votos da enquete da edição anterior (`resultado_enquete.json`) |
 | Sáb, de manhã | Editor + redator + revisor + designer | Monta a edição da segunda seguinte com `"aprovado": false`, manda a prévia e espera o editor-chefe |
 | Sáb e dom | Editor-chefe | Pede ajustes ou diz "aprovado"; só então a sessão muda para `"aprovado": true` |
@@ -86,13 +87,21 @@ Busque o que saiu **desde a última coleta** (normalmente nas últimas 24 a 72 h
 - Mande a prévia ao editor-chefe: as imagens do carrossel (SendUserFile), uma imagem do e-mail renderizado, a legenda e um resumo do que entrou e por quê. Mande também o e-mail de teste: dispare o workflow `publicar.yml` com `data`, `modo_teste=não` e `email_teste` igual ao e-mail do editor-chefe na lista.
 - Quando o editor-chefe pedir ajustes, faça e mande de novo. Quando ele disser **"aprovado"**, mude para `"aprovado": true`, faça commit e push, e confirme que a edição sai na segunda às 6h03.
 
-## 3. Posts avulsos (terça, quarta e sexta)
+## 3. Posts avulsos (terça a sexta, 12h07)
+
+Cada dia tem um tema fixo, que vai no campo `rotulo` do post:
+
+| Dia | Rótulo | O quê |
+| --- | --- | --- |
+| Terça | IA na Odonto | Inteligência artificial e tecnologia na Odontologia |
+| Quarta | Curiosidade | Um fato curioso da Odontologia, com fonte |
+| Quinta | Aprenda em 5 | Ensina algo prático ou um conceito que o graduando precisa saber |
+| Sexta | Notícia da profissão | CFO, Anvisa, leis, mercado de trabalho e carreira |
 
 - **Assunto novo da semana.** Nunca repita o que saiu na newsletter de segunda (confira `edicoes/` da semana).
 - **Não comprometa a próxima newsletter.** As pautas com nota 5 e a provável manchete da segunda seguinte ficam guardadas para a edição; a newsletter tem que ser sempre o conteúdo mais chamativo. Use nos posts:
-  - pautas boas de segundo nível (nota 3 ou 4) que não vão entrar na edição;
-  - oportunidades e prazos que vencem antes da próxima segunda (na newsletter chegariam tarde);
-  - "Você sabia?" sobre normas, regras e conceitos que o graduando precisa saber.
+  - pautas boas de segundo nível (nota 3 ou 4) que não vão entrar na edição e que caibam no tema do dia;
+  - oportunidades e prazos que vencem antes da próxima segunda (na newsletter chegariam tarde), como post urgente, fora do calendário.
 - Na dúvida se uma pauta é forte demais para virar post, guarde para a newsletter e pergunte ao editor-chefe.
 - Monte os posts com `"revisado": false` e mande a prévia ao editor-chefe; nada sai sem a revisão dele.
 

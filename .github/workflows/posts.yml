@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths: ["posts/**/post.json"]   # post urgente aprovado sai na hora
   schedule:
-    - cron: "7 15 * * 2,3,5"   # terça, quarta e sexta, 12h07 em Brasília
+    - cron: "7 15 * * 2-5"   # terça a sexta, 12h07 em Brasília
   workflow_dispatch:
     inputs:
       post_id:
