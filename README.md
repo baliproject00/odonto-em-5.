@@ -35,7 +35,7 @@ posts/AAAA-MM-DD-assunto/
 
 Tipos de post que se alternam: notícia, estudo explicado, oportunidade com prazo e "Você sabia?".
 
-**Regra:** post avulso traz assunto novo. O que já saiu na newsletter da semana não é repetido nos posts avulsos.
+**Regra:** post avulso traz assunto novo da semana. Nunca repete o que já saiu na newsletter de segunda e nunca usa as pautas mais fortes, que ficam guardadas para a edição da segunda seguinte: a newsletter tem que ser sempre o conteúdo mais chamativo. Os posts usam pautas boas de segundo nível, oportunidades com prazo que vence antes da próxima segunda e "Você sabia?".
 
 ## Estrutura de uma edição
 

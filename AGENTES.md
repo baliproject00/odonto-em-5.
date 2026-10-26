@@ -86,6 +86,16 @@ Busque o que saiu **desde a última coleta** (normalmente nas últimas 24 a 72 h
 - Mande a prévia ao editor-chefe: as imagens do carrossel (SendUserFile), uma imagem do e-mail renderizado, a legenda e um resumo do que entrou e por quê. Mande também o e-mail de teste: dispare o workflow `publicar.yml` com `data`, `modo_teste=não` e `email_teste` igual ao e-mail do editor-chefe na lista.
 - Quando o editor-chefe pedir ajustes, faça e mande de novo. Quando ele disser **"aprovado"**, mude para `"aprovado": true`, faça commit e push, e confirme que a edição sai na segunda às 6h03.
 
+## 3. Posts avulsos (terça, quarta e sexta)
+
+- **Assunto novo da semana.** Nunca repita o que saiu na newsletter de segunda (confira `edicoes/` da semana).
+- **Não comprometa a próxima newsletter.** As pautas com nota 5 e a provável manchete da segunda seguinte ficam guardadas para a edição; a newsletter tem que ser sempre o conteúdo mais chamativo. Use nos posts:
+  - pautas boas de segundo nível (nota 3 ou 4) que não vão entrar na edição;
+  - oportunidades e prazos que vencem antes da próxima segunda (na newsletter chegariam tarde);
+  - "Você sabia?" sobre normas, regras e conceitos que o graduando precisa saber.
+- Na dúvida se uma pauta é forte demais para virar post, guarde para a newsletter e pergunte ao editor-chefe.
+- Monte os posts com `"revisado": false` e mande a prévia ao editor-chefe; nada sai sem a revisão dele.
+
 ## O que nunca fazer
 
 - Publicar ou enviar qualquer coisa sem a aprovação do editor-chefe.
