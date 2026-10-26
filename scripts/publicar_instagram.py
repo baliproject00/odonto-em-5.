@@ -39,6 +39,24 @@ def esperar_pronto(container_id, token):
     falhar(f"A mídia {container_id} não ficou pronta a tempo.")
 
 
+def publicar_quando_pronto(usuario, container, token, tentativas=8):
+    """O Instagram às vezes diz 'mídia não está pronta' mesmo com status FINISHED: espera e tenta de novo."""
+    import urllib.error, urllib.parse, urllib.request
+    dados = urllib.parse.urlencode({"creation_id": container, "access_token": token}).encode()
+    for t in range(1, tentativas + 1):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(f"{BASE}/{usuario}/media_publish", data=dados, method="POST"), timeout=60) as r:
+                return json.loads(r.read().decode())["id"]
+        except urllib.error.HTTPError as e:
+            corpo = e.read().decode(errors="replace")
+            if "not ready" in corpo or "9007" in corpo:
+                log(f"Mídia ainda não pronta (tentativa {t}); esperando 15 s...")
+                time.sleep(15)
+                continue
+            falhar(f"media_publish respondeu {e.code}: {corpo[:500]}")
+    falhar("O Instagram não liberou a mídia para publicação a tempo.")
+
+
 def main():
     pasta, data = pasta_da_edicao()
     if not pasta:
@@ -81,7 +99,7 @@ def main():
         carrossel = r["id"]
         esperar_pronto(carrossel, token)
 
-    post = http("POST", f"{BASE}/{usuario}/media_publish", dados={"creation_id": carrossel, "access_token": token})["id"]
+    post = publicar_quando_pronto(usuario, carrossel, token)
     log(f"Carrossel publicado. ID do post: {post}")
 
     comentario = http("POST", f"{BASE}/{post}/comments", dados={"message": ig["comentario_enquete"], "access_token": token})

@@ -11,7 +11,7 @@ import os
 from datetime import datetime
 
 from comum import FUSO_BR, RAIZ, env, falhar, http, log, modo_teste, url_publica
-from publicar_instagram import BASE, LIMITE_HASHTAGS, LIMITE_LEGENDA, esperar_pronto
+from publicar_instagram import BASE, LIMITE_HASHTAGS, LIMITE_LEGENDA, esperar_pronto, publicar_quando_pronto
 
 
 def posts_a_publicar():
@@ -80,8 +80,7 @@ def main():
             midia = http("POST", f"{BASE}/{usuario}/media", dados={
                 "media_type": "CAROUSEL", "children": ",".join(filhos), "caption": post["legenda"], "access_token": token})["id"]
         esperar_pronto(midia, token)
-        publicado = http("POST", f"{BASE}/{usuario}/media_publish",
-                         dados={"creation_id": midia, "access_token": token})["id"]
+        publicado = publicar_quando_pronto(usuario, midia, token)
         registro = {"post_id": publicado}
         if post.get("comentario"):
             c = http("POST", f"{BASE}/{publicado}/comments", dados={"message": post["comentario"], "access_token": token})
