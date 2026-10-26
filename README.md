@@ -7,10 +7,10 @@ Newsletter semanal para graduandos de Odontologia, com carrossel no Instagram. E
 1. **De segunda a quinta**, os agentes do Claude coletam pautas todo dia.
 2. **Na sexta**, eles montam a edição e abrem uma *pull request* com ela: slides, legenda, comentário-enquete e e-mail.
 3. **No fim de semana**, você revisa a pull request e aprova com **Merge**. Só o que está na branch `main` é publicado.
-4. **No domingo ao meio-dia**, a rotina conta os votos da enquete da semana anterior.
+4. **Na sexta às 6h13**, a rotina conta os votos da enquete da semana anterior, antes da montagem da edição.
 5. **Na segunda, entre 6h03 e 6h30**, a rotina publica o carrossel com legenda, posta o comentário-enquete e envia a newsletter pela Brevo.
 
-Nada é publicado enquanto a variável `MODO_TESTE` estiver como `sim`.
+Nada é publicado enquanto a variável `MODO_TESTE` estiver como `sim`, nem enquanto a edição estiver com `"aprovado": false`. O manual dos agentes está em [AGENTES.md](AGENTES.md).
 
 ## Posts avulsos (estilo the news)
 

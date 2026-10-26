@@ -26,7 +26,9 @@ def todas(url, token):
 
 def main():
     publicadas = sorted(RAIZ.glob("edicoes/*/publicado_instagram.json"))
-    pendentes = [p for p in publicadas if not (p.parent / "resultado_enquete.json").exists()]
+    pendentes = [p for p in publicadas if not (p.parent / "resultado_enquete.json").exists()
+                 and "post_id" in json.loads(p.read_text(encoding="utf-8"))
+                 and "enquete" in json.loads((p.parent / "edicao.json").read_text(encoding="utf-8")).get("instagram", {})]
     if not pendentes:
         log("Nenhuma enquete pendente de contagem.")
         return

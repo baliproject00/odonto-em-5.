@@ -42,6 +42,11 @@ def pasta_da_edicao(data=None):
     return pasta, data
 
 
+def aprovada(edicao):
+    """Edições novas nascem com "aprovado": false. Só o editor-chefe muda para true."""
+    return edicao.get("aprovado", True) is True
+
+
 def ler_edicao(pasta):
     return json.loads((pasta / "edicao.json").read_text(encoding="utf-8"))
 

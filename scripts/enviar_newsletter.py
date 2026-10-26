@@ -8,7 +8,7 @@ import json
 import os
 from datetime import datetime, timezone
 
-from comum import env, http, ler_edicao, log, modo_teste, pasta_da_edicao, url_publica
+from comum import aprovada, env, http, ler_edicao, log, modo_teste, pasta_da_edicao, url_publica
 
 API = "https://api.brevo.com/v3"
 
@@ -45,6 +45,10 @@ def main():
         http("POST", f"{API}/emailCampaigns/{cid}/sendTest", cabecalhos=cab, json_body={"emailTo": [e.strip() for e in teste.split(",") if e.strip()]})
         http("DELETE", f"{API}/emailCampaigns/{cid}", cabecalhos=cab)
         log(f"Envio de teste feito para {teste}. O rascunho da campanha {cid} foi apagado na Brevo.")
+        return
+    if not aprovada(edicao) and not teste_lista:
+        http("DELETE", f"{API}/emailCampaigns/{cid}", cabecalhos=cab)
+        log("Edição ainda NÃO aprovada pelo editor-chefe. A newsletter não foi enviada.")
         return
     http("POST", f"{API}/emailCampaigns/{cid}/sendNow", cabecalhos=cab)
     if teste_lista:

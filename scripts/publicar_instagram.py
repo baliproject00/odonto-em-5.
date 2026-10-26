@@ -6,7 +6,7 @@ Segredos necessários: IG_USER_ID e IG_ACCESS_TOKEN.
 import json
 import time
 
-from comum import env, falhar, http, ler_edicao, log, modo_teste, pasta_da_edicao, url_publica
+from comum import aprovada, env, falhar, http, ler_edicao, log, modo_teste, pasta_da_edicao, url_publica
 
 VERSAO = env("IG_API_VERSAO", obrigatorio=False, padrao="v23.0")
 BASE = f"https://graph.instagram.com/{VERSAO}"
@@ -77,6 +77,9 @@ def main():
         log(f"  comentário-enquete:\n{ig['comentario_enquete']}")
         return
 
+    if not aprovada(ler_edicao(pasta)):
+        log("Edição ainda NÃO aprovada pelo editor-chefe. Nada foi publicado no Instagram.")
+        return
     usuario = env("IG_USER_ID")
     token = env("IG_ACCESS_TOKEN")
 
