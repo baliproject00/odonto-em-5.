@@ -28,7 +28,7 @@ Busque o que saiu **desde a última coleta** (normalmente nas últimas 24 a 72 h
 **Onde procurar**
 - Profissão e regulação: CFO, CROs (especialmente CROSP), Ministério da Saúde (Brasil Sorridente, SUS), Anvisa, MEC/Inep (Enade, diretrizes), Congresso (projetos de lei sobre Odontologia).
 - Saúde pública local: **secretarias municipais e estaduais de saúde e prefeituras**, começando pelas capitais (São Paulo, Rio de Janeiro, Belo Horizonte, Curitiba, Porto Alegre, Salvador, Recife, Brasília) e pelo Governo de SP. Procure campanhas e mutirões de saúde bucal (ex.: Virada Odontológica da Prefeitura de SP), ações do Brasil Sorridente, novos CEOs, concursos e processos seletivos para dentistas.
-- Datas da Odontologia: na semana de datas comemorativas (Dia do Cirurgião-Dentista em 25/10, Dia Mundial da Saúde Bucal em 20/3, Dia do Dentista em 3/10, Dia de Tiradentes em 21/4, Outubro Rosa/Novembro Azul com câncer bucal), busque ativamente campanhas e eventos ligados a elas.
+- Datas da Odontologia: na semana de datas comemorativas (Dia do Cirurgião-Dentista em 25/10, Dia Mundial da Saúde Bucal em 20/3, Tiradentes em 21/4, Outubro Rosa/Novembro Azul com câncer bucal), busque ativamente campanhas e eventos ligados a elas.
 - Imprensa da área: Jornal da APCD, ABO, revistas e portais de Odontologia, grandes jornais quando o assunto for de Odontologia.
 - Universidades: notícias das faculdades de Odontologia (USP, Unicamp, Unesp, UFMG, Einstein etc.).
 - Ciência: estudos novos em revistas da área (J Dent Res, J Dent, Clin Oral Investig, BMC Oral Health, Int Endod J, J Periodontol, Dent Mater, Braz Oral Res e similares). Prefira ensaios clínicos, revisões sistemáticas e estudos com impacto clínico ou de interesse do estudante.
