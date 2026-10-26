@@ -46,6 +46,8 @@ jobs:
       TESTE_LISTA: ${{ inputs.teste_lista || 'não' }}
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: main   # sempre a versão mais nova (evita publicar duas vezes se duas execuções se cruzarem)
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
