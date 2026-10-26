@@ -8,7 +8,7 @@ Newsletter semanal para graduandos de Odontologia, com carrossel no Instagram. E
 2. **Na sexta**, eles montam a edição e abrem uma *pull request* com ela: slides, legenda, comentário-enquete e e-mail.
 3. **No fim de semana**, você revisa a pull request e aprova com **Merge**. Só o que está na branch `main` é publicado.
 4. **No domingo ao meio-dia**, a rotina conta os votos da enquete da semana anterior.
-5. **Na segunda por volta de 6h30**, a rotina publica o carrossel com legenda, posta o comentário-enquete e envia a newsletter pela Brevo.
+5. **Na segunda, entre 6h03 e 6h30**, a rotina publica o carrossel com legenda, posta o comentário-enquete e envia a newsletter pela Brevo.
 
 Nada é publicado enquanto a variável `MODO_TESTE` estiver como `sim`.
 
