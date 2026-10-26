@@ -2,7 +2,7 @@ name: Contar votos da enquete
 
 on:
   schedule:
-    - cron: "13 9 * * 5"   # sexta, 6h13 em Brasília, antes da montagem da edição
+    - cron: "13 9 * * 6"   # sábado, 6h13 em Brasília, antes da montagem da edição
   workflow_dispatch:
     inputs:
       modo_teste:

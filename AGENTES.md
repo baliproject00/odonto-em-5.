@@ -13,10 +13,10 @@ Este arquivo é o guia das sessões automáticas do Claude que pesquisam e monta
 
 | Quando | Quem | O quê |
 | --- | --- | --- |
-| Seg a qui, de manhã | Pesquisador | Coleta diária de pautas, salva no documento de pautas da semana no projeto ODONTOEMCINCO do Claude |
-| Sex, 6h13 | Rotina do GitHub | Conta os votos da enquete da edição anterior (`resultado_enquete.json`) |
-| Sex, de manhã | Editor + redator + revisor + designer | Monta a edição da segunda seguinte com `"aprovado": false`, manda a prévia e espera o editor-chefe |
-| Fim de semana | Editor-chefe | Pede ajustes ou diz "aprovado"; só então a sessão muda para `"aprovado": true` |
+| Seg a sex, de manhã | Pesquisador | Coleta diária de pautas, salva no documento de pautas da semana no projeto ODONTOEMCINCO do Claude |
+| Sáb, 6h13 | Rotina do GitHub | Conta os votos da enquete da edição anterior (`resultado_enquete.json`) |
+| Sáb, de manhã | Editor + redator + revisor + designer | Monta a edição da segunda seguinte com `"aprovado": false`, manda a prévia e espera o editor-chefe |
+| Sáb e dom | Editor-chefe | Pede ajustes ou diz "aprovado"; só então a sessão muda para `"aprovado": true` |
 | Seg, 6h03 | Rotina do GitHub | Publica carrossel + enquete e envia a newsletter (só se `"aprovado": true`) |
 
 ## 1. Pesquisador (coleta diária)
@@ -49,7 +49,7 @@ Busque o que saiu **desde a última coleta** (normalmente nas últimas 24 a 72 h
 - Documento do projeto ODONTOEMCINCO: `pautas/semana-AAAA-MM-DD.md`, em que a data é a da **segunda-feira da edição** que essas pautas vão alimentar (a próxima segunda). Leia o documento se já existir, acrescente a seção do dia (`## Coleta de DD/MM`) e grave o documento inteiro de volta.
 - Ao final, mande ao editor-chefe uma mensagem curta: quantas pautas novas, a mais forte do dia e se há algo urgente.
 
-## 2. Montagem da edição (sexta)
+## 2. Montagem da edição (sábado)
 
 ### Editor
 - Leia o documento de pautas da semana e escolha: **3 notícias** para o Giro, **1 estudo** para Ciência sem complicação, **1 assunto** para Odonto do futuro, **2 a 4 itens** para o Radar e **1 pergunta** para o Desafio da semana (múltipla escolha A a D, com resposta e explicação).
