@@ -4,9 +4,9 @@ Newsletter semanal para graduandos de Odontologia, com carrossel no Instagram. E
 
 ## Como funciona
 
-1. **De segunda a quinta**, os agentes do Claude coletam pautas todo dia.
-2. **Na sexta**, eles montam a edição e abrem uma *pull request* com ela: slides, legenda, comentário-enquete e e-mail.
-3. **No fim de semana**, você revisa a pull request e aprova com **Merge**. Só o que está na branch `main` é publicado.
+1. **De segunda a sexta**, os agentes do Claude coletam pautas todo dia.
+2. **No sábado**, eles montam a edição com `"aprovado": false` e mandam a prévia: e-mail, carrossel, legenda e comentário-enquete.
+3. **No fim de semana**, você revisa e responde "aprovado". Só edição aprovada é publicada.
 4. **No sábado às 6h13**, a rotina conta os votos da enquete da semana anterior, antes da montagem da edição.
 5. **Na segunda, entre 6h03 e 6h30**, a rotina envia a newsletter pela Brevo. **Por volta das 12h**, publica o carrossel-resumo no Instagram, com o comentário-enquete.
 
