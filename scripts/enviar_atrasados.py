@@ -86,6 +86,17 @@ def main():
     agora = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M")
     temp = http("POST", f"{API}/contacts/lists", cabecalhos=cab,
                 json_body={"name": f"Atrasados {data} ({agora} UTC)", "folderId": pasta_brevo(cab)})["id"]
+    try:
+        campanha = enviar_para_lista(cab, temp, ids, data, agora, edicao, html)
+    except SystemExit:
+        http("DELETE", f"{API}/contacts/lists/{temp}", cabecalhos=cab, tentativas=1)
+        raise
+    atendidos.update(ids)
+    arquivo.write_text(json.dumps({"ids": sorted(atendidos)}, indent=2), encoding="utf-8")
+    log(f"Edição de {data} enviada para {len(ids)} inscrito(s) novo(s). Campanha {campanha}.")
+
+
+def enviar_para_lista(cab, temp, ids, data, agora, edicao, html):
     http("POST", f"{API}/contacts/lists/{temp}/contacts/add", cabecalhos=cab, json_body={"ids": ids})
     campanha = http("POST", f"{API}/emailCampaigns", cabecalhos=cab, json_body={
         "name": f"odonto em 5 · {data} · atrasados {agora}",
@@ -95,9 +106,7 @@ def main():
         "recipients": {"listIds": [temp]},
     })["id"]
     http("POST", f"{API}/emailCampaigns/{campanha}/sendNow", cabecalhos=cab)
-    atendidos.update(ids)
-    arquivo.write_text(json.dumps({"ids": sorted(atendidos)}, indent=2), encoding="utf-8")
-    log(f"Edição de {data} enviada para {len(ids)} inscrito(s) novo(s). Campanha {campanha}.")
+    return campanha
 
 
 def pasta_brevo(cab):
