@@ -67,6 +67,8 @@ def main():
 
     cab = {"api-key": env("BREVO_API_KEY"), "accept": "application/json"}
     lista = int(env("BREVO_LISTA_ID"))
+    if not modo_teste():
+        limpar_listas_antigas(cab)
     novos = [c for c in novos_contatos(cab, lista, enviado_em) if c["id"] not in atendidos]
     if not novos:
         log(f"Ninguém novo desde o envio de {data}.")
@@ -107,6 +109,19 @@ def enviar_para_lista(cab, temp, ids, data, agora, edicao, html):
     })["id"]
     http("POST", f"{API}/emailCampaigns/{campanha}/sendNow", cabecalhos=cab)
     return campanha
+
+
+def limpar_listas_antigas(cab):
+    """Apaga as listas temporárias de atrasados com mais de 1 dia (as campanhas delas já foram enviadas)."""
+    import re
+    pasta = pasta_brevo(cab)
+    r = http("GET", f"{API}/contacts/folders/{pasta}/lists?limit=50", cabecalhos=cab)
+    limite = datetime.now(timezone.utc) - timedelta(days=1)
+    for lista in r.get("lists", []):
+        m = re.search(r"\((\d{4}-\d{2}-\d{2} \d{2}:\d{2}) UTC\)", lista["name"])
+        if m and datetime.strptime(m.group(1), "%Y-%m-%d %H:%M").replace(tzinfo=timezone.utc) < limite:
+            http("DELETE", f"{API}/contacts/lists/{lista['id']}", cabecalhos=cab)
+            log(f"Lista temporária antiga apagada: {lista['name']}")
 
 
 def pasta_brevo(cab):
