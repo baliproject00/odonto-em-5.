@@ -1,0 +1,31 @@
+{
+  "data": "2026-11-02",
+  "aprovado": false,
+  "titulo": "Um líquido que para a cárie sem broca?",
+  "email": {
+    "assunto": "Um líquido que para a cárie sem broca? E o Novembro Vermelho",
+    "arquivo": "email.html"
+  },
+  "instagram": {
+    "slides": [
+      "slides/01.jpg",
+      "slides/02.jpg",
+      "slides/03.jpg",
+      "slides/04.jpg",
+      "slides/05.jpg",
+      "slides/desafio.jpg"
+    ],
+    "legenda": "📩 Este é o resumo da edição de hoje do odonto em 5. A versão completa, com todos os detalhes e links, chegou às 6h no e-mail de quem assina.\n\n🦷 Um líquido que para a cárie sem broca? Um ensaio de fase III com 830 crianças testou o diamino fluoreto de prata, e o resultado está no slide 3.\n\nNesta edição:\n• Novembro Vermelho: o diagnóstico do câncer de boca começa na cadeira do dentista\n• EndoSUS: dentistas dos CEOs vão treinar endodontia mecanizada\n• Clorexidina na UTI não reduziu pneumonia em pacientes intubados\n• Dá para pedir à IA que avalie os artigos do seu TCC?\n• Datas para ficar de olho no Radar acadêmico\n\n🧠 No último slide tem o desafio da semana: comente a letra (A, B, C ou D)! A resposta sai na próxima edição.\n\n📚 Referências\nFontana et al., JAMA Pediatr, 2026. DOI 10.1001/jamapediatrics.2026.2567\nAnushapreethi et al., Crit Care, 2026. DOI 10.1186/s13054-026-06217-0\nNagendrababu et al., Int Endod J, 2026. DOI 10.1111/iej.70297\nPrefeitura de São Paulo · A Crítica (MS), 23/10 · FOUSP, 28/10 · CROSP, 08/10\n\nAssine grátis pelo link da bio.\n\n#odontologia #odonto #estudantedeodontologia #novembrovermelho #odontologiabaseadaemevidencias",
+    "comentario_enquete": "🗳️ Vote aqui: responda este comentário com A, B, C ou D. Vale um voto por pessoa, e o resultado sai na edição de segunda que vem!",
+    "enquete": {
+      "opcoes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correta": "B",
+      "explicacao": "Nos países ocidentais, excluindo os lábios, a borda lateral e o ventre da língua são o local intraoral mais comum do carcinoma espinocelular, seguidos do assoalho bucal. Por isso, examinar as bordas da língua é obrigatório no exame clínico."
+    }
+  }
+}
