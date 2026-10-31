@@ -1,0 +1,17 @@
+{
+  "total_votos": 0,
+  "votos": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0
+  },
+  "percentual": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0
+  },
+  "correta": "B",
+  "explicacao": "Pela definição clássica, a HMI exige pelo menos um primeiro molar permanente afetado; os incisivos podem ou não estar envolvidos."
+}
