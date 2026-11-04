@@ -105,7 +105,11 @@ Cada dia tem um tema fixo, que vai no campo `rotulo` do post:
   - pautas boas de segundo nível (nota 3 ou 4) que não vão entrar na edição e que caibam no tema do dia;
   - oportunidades e prazos que vencem antes da próxima segunda (na newsletter chegariam tarde), como post urgente, fora do calendário.
 - Na dúvida se uma pauta é forte demais para virar post, guarde para a newsletter e pergunte ao editor-chefe.
-- Monte os posts com `"revisado": false` e mande a prévia ao editor-chefe; nada sai sem a revisão dele.
+- **Divisão de papéis:** a newsletter fica com as notícias mais fortes da semana; o Instagram fica com o dia a dia: prazos e inscrições, eventos, notícias de menor alcance, curiosidades e conteúdo prático. Um prazo que ainda estiver aberto na segunda pode aparecer também no Radar da newsletter.
+- **Fluxo diário (terça a sexta):** a coleta das 6h36 monta o post do dia em `posts/AAAA-MM-DD-assunto/` com `"publicar_em"` igual à data de hoje e `"revisado": false`, faz commit e push, e manda ao editor-chefe a imagem (ou as imagens do carrossel) e a legenda, terminando com "Responda 'aprovado' para sair hoje às 12h". Quando ele aprovar, mude para `"revisado": true` e faça push: antes das 12h07 o post sai no horário; depois disso, sai na hora.
+- **Prazo urgente:** em qualquer dia, um post extra sobre prazo que vence antes da próxima segunda, pelo mesmo fluxo de aprovação.
+- Formato: 1 imagem (manchete + dado principal) ou carrossel de 3 a 5 imagens 1080x1350 quando o assunto pedir; legenda com o essencial, a fonte e "Tudo da Odontologia em 5 minutos, toda segunda no seu e-mail: link na bio".
+- Nada sai sem a aprovação do editor-chefe. Post não aprovado no dia fica parado; não reaproveite sem perguntar.
 
 ## O que nunca fazer
 
