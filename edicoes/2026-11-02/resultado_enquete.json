@@ -1,0 +1,17 @@
+{
+  "total_votos": 0,
+  "votos": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0
+  },
+  "percentual": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0
+  },
+  "correta": "B",
+  "explicacao": "Nos países ocidentais, excluindo os lábios, a borda lateral e o ventre da língua são o local intraoral mais comum do carcinoma espinocelular, seguidos do assoalho bucal. Por isso, examinar as bordas da língua é obrigatório no exame clínico."
+}
