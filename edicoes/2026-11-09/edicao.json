@@ -1,0 +1,31 @@
+{
+  "data": "2026-11-09",
+  "aprovado": false,
+  "titulo": "Forrador sob a resina: ainda precisa?",
+  "email": {
+    "assunto": "Forrador sob a resina: ainda precisa? E o piso dos dentistas",
+    "arquivo": "email.html"
+  },
+  "instagram": {
+    "slides": [
+      "slides/01.jpg",
+      "slides/02.jpg",
+      "slides/03.jpg",
+      "slides/04.jpg",
+      "slides/05.jpg",
+      "slides/desafio.jpg"
+    ],
+    "legenda": "📩 Este é o resumo da edição de hoje do odonto em 5. A versão completa, com todos os detalhes e links, chegou às 6h no e-mail de quem assina.\n\n🦷 Forrador de ionômero sob a resina: ainda precisa? Um ensaio clínico com 144 lesões profundas acompanhou as restaurações por até 3 anos, e o resultado está no slide 3.\n\nNesta edição:\n• Piso salarial: dentistas vão ao Congresso em 10 e 11/11\n• SB Brasil 2023: mais cobertura não apagou a desigualdade de cárie aos 5 anos\n• Coronectomia em sisos de alto risco: quando acender o alerta\n• Scanner na mão desde o 1º ano de faculdade\n• Prazos e eventos no Radar acadêmico\n\n🧠 No último slide tem o desafio da semana: comente a letra (A, B, C ou D)! A resposta sai na próxima edição.\n\n📚 Referências\nMuñoz-Sandoval et al., Clin Oral Investig, 2026. DOI 10.1007/s00784-026-07209-8\nPiovesan e Bernabé, J Dent, 2026. DOI 10.1016/j.jdent.2026.107138\nLindeboom et al., J Oral Maxillofac Surg, 2026. DOI 10.1016/j.joms.2026.10.007\nCFO · Senado Federal (PL 1.365/2022) · UT Health San Antonio, 26/10\n\nAssine grátis pelo link da bio.\n\n#odontologia #odonto #estudantedeodontologia #dentistica #odontologiabaseadaemevidencias",
+    "comentario_enquete": "🗳️ Vote aqui: responda este comentário com A, B, C ou D. Vale um voto por pessoa, e o resultado sai na edição de segunda que vem!",
+    "enquete": {
+      "opcoes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correta": "C",
+      "explicacao": "Em lesões profundas de dentes com polpa vital, a remoção seletiva deixa dentina amolecida sobre a polpa para reduzir o risco de exposição pulpar; nas paredes ao redor, a remoção vai até a dentina dura, para garantir o selamento da restauração. É a recomendação do consenso internacional de manejo da cárie (ICCC, 2016)."
+    }
+  }
+}
