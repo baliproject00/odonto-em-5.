@@ -17,6 +17,11 @@ on:
         type: choice
         options: ["não", "sim"]
         default: "não"
+      so_email:
+        description: "Só a newsletter: envia o e-mail e deixa o Instagram para a rotina das 11h47"
+        type: choice
+        options: ["não", "sim"]
+        default: "não"
       modo_teste:
         description: "Modo teste (não publica nada)"
         type: choice
@@ -53,7 +58,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Publicar carrossel e comentário-enquete
-        if: vars.PUBLICAR_INSTAGRAM == 'sim' && !inputs.email_teste && inputs.teste_lista != 'sim' && github.event.schedule != '3 9 * * 1'
+        if: vars.PUBLICAR_INSTAGRAM == 'sim' && !inputs.email_teste && inputs.teste_lista != 'sim' && inputs.so_email != 'sim' && github.event.schedule != '3 9 * * 1'
         run: python scripts/publicar_instagram.py
       - name: Enviar newsletter
         if: always() && github.event.schedule != '47 14 * * 1'
