@@ -1,0 +1,14 @@
+{
+  "tipo": "estudo",
+  "publicar_em": "2026-11-10",
+  "revisado": false,
+  "rotulo": "IA na Odonto",
+  "fonte": "https://doi.org/10.1016/j.jdent.2026.107151",
+  "legenda": "🤖 IA NA ODONTO | Você já viu manchete dizendo que a inteligência artificial acerta 99% dos diagnósticos na Odontologia? Uma revisão sistemática foi conferir de onde vêm esses números. Arraste para o lado 👉\n\nPesquisadores da Queen Mary University of London analisaram 96 estudos de IA para diagnóstico odontológico, de várias especialidades.\n\nO que os estudos relatam:\n• acurácia de 81% a 99%, conforme a área\n• Implantodontia de 92% a 99%, Ortodontia de 88% a 99% e Endodontia de 87% a 99%\n• radiografia panorâmica e tomografia de feixe cônico foram os exames mais usados\n\nO outro lado:\n• 90,6% dos estudos eram retrospectivos, feitos com imagens de arquivo\n• 55,2% tinham alto risco de viés pela ferramenta QUADAS-2\n• a maioria não testou a IA em outra base de pacientes (validação externa)\n• faltaram, em muitos casos, justificativa do tamanho da amostra, registro do estudo e dados ou código abertos\n\nNa prática: acurácia alta num estudo retrospectivo, sem validação externa, não garante o mesmo desempenho no seu paciente. Para os autores, a IA deve ser apoio à decisão, não substituta do julgamento clínico.\n\n📚 Alrayes, Kollias e Baysan. Journal of Dentistry, 2026. DOI 10.1016/j.jdent.2026.107151\n(Imagens e gráfico: odonto em 5 | Dados do estudo)\n\nTudo da Odontologia em 5 minutos, toda segunda no seu e-mail: link na bio.\n\n#odontologia #estudantedeodontologia #inteligenciaartificial #odontologiadigital #odontologiabaseadaemevidencias",
+  "carrossel": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg"
+  ]
+}
