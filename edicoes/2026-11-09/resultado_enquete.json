@@ -1,0 +1,17 @@
+{
+  "total_votos": 0,
+  "votos": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0
+  },
+  "percentual": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0
+  },
+  "correta": "C",
+  "explicacao": "Em lesões profundas de dentes com polpa vital, a remoção seletiva deixa dentina amolecida sobre a polpa para reduzir o risco de exposição pulpar; nas paredes ao redor, a remoção vai até a dentina dura, para garantir o selamento da restauração. É a recomendação do consenso internacional de manejo da cárie (ICCC, 2016)."
+}
