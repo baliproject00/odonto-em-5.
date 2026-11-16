@@ -1,0 +1,31 @@
+{
+  "data": "2026-11-16",
+  "aprovado": true,
+  "titulo": "Agulha e perfurocortante na clínica",
+  "email": {
+    "assunto": "Mais de 4 em cada 10 estudantes de Odonto já se acidentaram com agulha",
+    "arquivo": "email.html"
+  },
+  "instagram": {
+    "slides": [
+      "slides/01.jpg",
+      "slides/02.jpg",
+      "slides/03.jpg",
+      "slides/04.jpg",
+      "slides/05.jpg",
+      "slides/desafio.jpg"
+    ],
+    "legenda": "📩 Este é o resumo da edição de hoje do odonto em 5. A versão completa, com todos os detalhes e links, chegou às 6h no e-mail de quem assina.\n\n🦷 Mais de 4 em cada 10 estudantes de Odontologia já se acidentaram com agulha ou material cortante, segundo uma metanálise com 21.481 profissionais. Os números estão no slide 3.\n\nNesta edição:\n• Eleições do CFO: até 27/11, os CROs escolhem os delegados\n• Câncer de boca: cerca de 17 mil casos novos por ano no Brasil\n• 1ª Mostra Nacional Brasil Sorridente\n• Implante colocado por robô: o que a evidência mostra\n• Prazos correndo no Radar acadêmico\n\n🧠 No último slide tem o desafio da semana: comente a letra (A, B, C ou D)! A resposta sai na próxima edição.\n\n📚 Referências\nZhu et al., Medicine, 2026. DOI 10.1097/MD.0000000000051365\nZhu et al., J Dent, 2026. DOI 10.1016/j.jdent.2026.107155\nCFO · CROSP/INCA · Ministério da Saúde\n\nAssine grátis pelo link da bio.\n\n#odontologia #odonto #estudantedeodontologia #biosseguranca #odontologiabaseadaemevidencias",
+    "comentario_enquete": "🗳️ Vote aqui: responda este comentário com A, B, C ou D. Vale um voto por pessoa, e o resultado sai na edição de segunda que vem!",
+    "enquete": {
+      "opcoes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correta": "B",
+      "explicacao": "A orientação do CROSP, na Semana Nacional de Prevenção do Câncer Bucal, é que uma ferida na boca que não cicatriza em cerca de 15 dias seja avaliada pelo dentista. Esperar a dor não é um bom critério: lesões no início costumam não doer."
+    }
+  }
+}
