@@ -1,0 +1,17 @@
+{
+  "total_votos": 0,
+  "votos": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0
+  },
+  "percentual": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0
+  },
+  "correta": "B",
+  "explicacao": "A orientação do CROSP, na Semana Nacional de Prevenção do Câncer Bucal, é que uma ferida na boca que não cicatriza em cerca de 15 dias seja avaliada pelo dentista. Esperar a dor não é um bom critério: lesões no início costumam não doer."
+}
